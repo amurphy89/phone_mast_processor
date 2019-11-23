@@ -1,5 +1,7 @@
 import click
 
+from pprint import pprint as pp
+
 from . import csv_reader
 from . import helpers
 
@@ -9,7 +11,8 @@ from . import helpers
 def cli(file):
     try:
         df = csv_reader.read_csv(file)
-        print(helpers.sort_by_rent(df))
+        print('Lowest 5 entries by Current Rent:\n')
+        pp(helpers.sort_by_rent(df))
     except FileNotFoundError:
         SystemExit("File was not found.")
 
