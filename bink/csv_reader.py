@@ -9,8 +9,8 @@ def read_csv(file):
             next(reader)
             for row in reader:
                 rows.append(row)
+        if not rows:
+            raise IOError
         return rows
     except FileNotFoundError:
         raise FileNotFoundError
-    except IOError:
-        raise IOError
