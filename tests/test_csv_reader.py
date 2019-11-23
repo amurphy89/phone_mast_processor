@@ -1,5 +1,3 @@
-from io import StringIO
-
 from mock import mock_open, patch
 
 from bink import csv_reader
@@ -17,3 +15,4 @@ class TestBink:
         m.assert_called_once_with('test.csv', 'rt')
         print(f"result: {result}")
         assert result == [['test1', 'test2'], ['test3', 'test4']]
+
