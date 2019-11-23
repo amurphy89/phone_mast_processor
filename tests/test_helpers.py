@@ -16,12 +16,12 @@ class TestHelpers:
         ]
 
         self.masts = [
-            Mast('Beecroft Hill', 'Broad Lane','','','LS13','Beecroft Hill - Telecom App','Arqiva Services ltd', '01 Mar 1994', '28 Feb 2058', '64', '4500.00'),
-            Mast('Potternewton Crescent', 'Potternewton Est Playing Field','','','LS13','Beecroft Hill - Telecom App','Arqiva Services ltd', '01 Mar 1994', '28 Feb 2058', '10', '50000.00'),
+            Mast('Beecroft Hill', 'Broad Lane','','','LS13','Beecroft Hill - Telecom App','EE', '01 Mar 1994', '28 Feb 2058', '64', '4500.00'),
+            Mast('Potternewton Crescent', 'Potternewton Est Playing Field','','','LS13','Beecroft Hill - Telecom App','Arqiva Services Ltd', '01 Mar 1994', '28 Feb 2058', '10', '50000.00'),
             Mast('Potternewton Crescent', 'Potternewton Est Playing Field','','','LS13','Beecroft Hill - Telecom App','Arqiva Services ltd', '01 Mar 1994', '28 Feb 2058', '20', '60000.00'),
-            Mast('Potternewton Crescent', 'Potternewton Est Playing Field','','','LS13','Beecroft Hill - Telecom App','Arqiva Services ltd', '01 Mar 1994', '28 Feb 2058', '30', '23950.00'),
-            Mast('Potternewton Crescent', 'Potternewton Est Playing Field','','','LS13','Beecroft Hill - Telecom App','Arqiva Services ltd', '01 Mar 1994', '28 Feb 2058', '40', '23950.00'),
-            Mast('Potternewton Crescent', 'Potternewton Est Playing Field','','','LS13','Beecroft Hill - Telecom App','Arqiva Services ltd', '01 Mar 1994', '28 Feb 2058', '64', '23950.00'),
+            Mast('Potternewton Crescent', 'Potternewton Est Playing Field','','','LS13','Beecroft Hill - Telecom App','Arqiva Services.', '01 Mar 1994', '28 Feb 2058', '30', '23950.00'),
+            Mast('Potternewton Crescent', 'Potternewton Est Playing Field','','','LS13','Beecroft Hill - Telecom App','Arqiva Services ltd.', '01 Mar 1994', '28 Feb 2058', '40', '23950.00'),
+            Mast('Potternewton Crescent', 'Potternewton Est Playing Field','','','LS13','Beecroft Hill - Telecom App','Vodafone', '01 Mar 1994', '28 Feb 2058', '64', '23950.00'),
         ]
 
 
@@ -48,6 +48,12 @@ class TestHelpers:
         result = helpers.calculate_total_rent(self.masts)
 
         assert result == 186350.00
+
+    def test_group_masts_by_tenant(self):
+        result = helpers.group_masts_by_tenant(self.masts)
+
+        assert result['Arqiva Services Ltd'] == 4
+        assert 'Arqiva Services' not in result
 
         
 

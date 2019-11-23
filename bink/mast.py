@@ -17,8 +17,6 @@ class Mast:
         self.lease_years = int(lease_years)
         self.current_rent = float(current_rent)
 
-    
-
     def __str__(self):
         return f'''
             Property Name: {self.property_name},
