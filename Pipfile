@@ -9,6 +9,7 @@ mock = "*"
 
 [packages]
 click = "==7.0"
+pandas = "*"
 
 [requires]
 python_version = "3.8"
