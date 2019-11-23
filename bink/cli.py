@@ -8,14 +8,22 @@ from . import helpers
 @click.command()
 @click.argument('file')
 def cli(file):
-    pass
     data = csv_reader.read_csv(file)
     masts = helpers.map_data(data)
 
-    cheapest_masts_by_rent = helpers.sort_by_current_rent(masts)
+    masts_by_cheapest_rent = helpers.sort_by_current_rent(masts)
+    masts_by_lease = helpers.filter_by_lease_years(masts, 25)
+    total_rents = helpers.calculate_total_rent(masts)
 
+    print("First 5 with lowest rent:\n")
+    print_masts(masts_by_cheapest_rent)
+    
+    print("Masts with a lease of 25 years:\n")
+    print_masts(masts_by_lease)
 
-    print("First 5 with lowest rent\n")
-    for mast in cheapest_masts_by_rent:
-        pprint(mast.to_dict())
+    print(f"The total rent of all masts is: {round(total_rents, 2)}")
+
+def print_masts(masts):
+    for mast in masts:
+        print(mast)
     

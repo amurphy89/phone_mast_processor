@@ -14,23 +14,23 @@ class Mast:
         self.tenant_name = tenant_name
         self.lease_start_date = lease_start_date
         self.lease_end_date = lease_end_date 
-        self.lease_years = lease_years
-        self.current_rent = current_rent
+        self.lease_years = int(lease_years)
+        self.current_rent = float(current_rent)
 
     
 
-    def to_dict(self):
-        return {
-            "Property Name": self.property_name,
-            "Address Line 1": self.address1,
-            "Address Line 2": self.address2,
-            "Address Line 3": self.address3,
-            "Address Line 4": self.address4,
-            "Unit Name": self.unit_name,
-            "Tenant Name": self.tenant_name,
-            "Lease Start Date": self.lease_start_date,
-            "Lease End Date": self.lease_end_date,
-            "Lease Years": self.lease_years,
-            "Current Rent": self.current_rent,
-        }
+    def __str__(self):
+        return f'''
+            Property Name: {self.property_name},
+            Address Line 1: {self.address1},
+            Address Line 2: {self.address2},
+            Address Line 3: {self.address3},
+            Address Line 4: {self.address4},
+            Unit Name: {self.unit_name},
+            Tenant Name: {self.tenant_name},
+            Lease Start Date: {self.lease_start_date},
+            Lease End Date: {self.lease_end_date},
+            Lease Years: {self.lease_years},
+            Current Rent: {self.current_rent},
+        '''
      

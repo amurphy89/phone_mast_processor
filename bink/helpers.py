@@ -8,6 +8,12 @@ def map_data(data):
 
 def sort_by_current_rent(masts):
     lowest_rents = masts
-    lowest_rents.sort(key=lambda x: float(x.current_rent))
+    lowest_rents.sort(key=lambda x: x.current_rent)
     return lowest_rents[:5]
+
+def filter_by_lease_years(masts, years):
+    return [x for x in masts if x.lease_years == years]
+
+def calculate_total_rent(masts):
+    return sum([x.current_rent for x in masts])
 
