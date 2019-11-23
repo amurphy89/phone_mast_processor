@@ -12,7 +12,7 @@ REQUIRES_PYTHON = '>=3.7.0'
 VERSION = '0.1.0'
 
 # Required packages.
-REQUIRED = ['click', 'requests']
+REQUIRED = ['click', 'pytest']
 
 # Optional packages.
 EXTRAS = {}
