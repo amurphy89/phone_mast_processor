@@ -1,4 +1,7 @@
+import itertools
+
 from .mast import Mast
+from.levensthein import levenshtein_ratio_and_distance
 
 def map_data(data):
     masts = []
@@ -17,3 +20,22 @@ def filter_by_lease_years(masts, years):
 def calculate_total_rent(masts):
     return sum([x.current_rent for x in masts])
 
+def group_masts_by_tenant(masts):
+    result = {}
+
+    for mast in masts:
+        seen = False
+        for tenant, count in result.items():
+            ratio = round(levenshtein_ratio_and_distance(tenant, mast.tenant_name, ratio_calc=True), 2)
+            is_similar = 0.62 <= ratio <= 1
+            if is_similar:
+                result[tenant] += 1
+                seen = True
+                break
+
+        if seen:
+            continue
+        if mast.tenant_name not in result:
+            result[mast.tenant_name] = 1
+
+    return result
