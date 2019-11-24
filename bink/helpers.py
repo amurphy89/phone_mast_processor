@@ -39,3 +39,10 @@ def group_masts_by_tenant(masts):
             result[mast.tenant_name] = 1
 
     return result
+
+def filter_by_lease_start_date(masts, earliest_date, last_date):
+    result = []
+    for mast in masts:
+        if earliest_date <= mast.lease_start_date <= last_date:
+            result.append(mast)
+    return result
