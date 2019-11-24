@@ -1,8 +1,8 @@
 from datetime import datetime
 
-from bink.mast import Mast
+from phone_mast_processor.mast import Mast
 
-from bink import helpers
+from phone_mast_processor import helpers
 
 from .test_fixtures import data, masts
 
