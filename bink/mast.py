@@ -1,5 +1,3 @@
-# from pprint import pprint
-
 class Mast:
 
     def __init__(self, property_name, address1, address2, address3, address4, unit_name, tenant_name, lease_start_date,
@@ -16,8 +14,6 @@ class Mast:
         self.lease_end_date = lease_end_date 
         self.lease_years = int(lease_years)
         self.current_rent = float(current_rent)
-
-    
 
     def __str__(self):
         return f'''
