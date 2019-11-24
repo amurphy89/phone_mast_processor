@@ -3,7 +3,7 @@ from shutil import rmtree
 from setuptools import find_packages, setup, Command
 
 # Package meta-data.
-NAME = 'bink'
+NAME = 'Phone Mast Processor'
 DESCRIPTION = 'Load phone mast data, process and output to console.'
 URL = 'https://github.com/amurphy9956/bink'
 EMAIL = 'amurphy9956@live.com'
@@ -24,7 +24,7 @@ setup(
     author_email=EMAIL,
     description=DESCRIPTION,
     entry_points={
-        'console_scripts': ['bink=bink.cli:cli'],
+        'console_scripts': ['phone_mast_processor=phone_mast_processor.cli:cli'],
     },
     url=URL,
     packages=find_packages(exclude=['tests', '*.tests', '*.tests.*', 'tests.*']),

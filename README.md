@@ -1,17 +1,19 @@
+#Phone Mast Data Processor
+
 Load phone mast data, process and output to the console.
 
 Installation
 Install using pip:
 
-```$ pip install bink```
+```$ pip install phone_mast_processor```
 
 or
 
 ```$ pipenv run pip install .```
 
-Usage
+##Usage
 
-Usage: bink [OPTIONS] FILE
+Usage: phone_mast_processor [OPTIONS] FILE
 
   This application processes phone mast data and outputs it to the console.
 
@@ -24,9 +26,9 @@ Usage: bink [OPTIONS] FILE
   - tenant - tenant name and a count of masts for each tenant. 
   - lease start date - data for rentals with Lease Start Date between 1 June 1999 and 31 Aug 2007.
 
-  eg ```bink -s "totalrent" "Mobile Phone Masts.csv"```
+  eg ```phone_mast_processor -s "total rent" data.csv```
 
-Development
+##Development
 
 Install pipenv and run from the base directory. This application has only been tested with Python 3.8 but will require at lease version 3.6 due to this use of f strings:
 
@@ -42,3 +44,4 @@ Things to improve:
     - Use the 'typing' library to support type hints e.g. def greeting(name: str) -> str:
     - Convince the Product Owner to allow me to use Pandas!
     - If the input file cannot be found or is empty, uses requests to download the file from the URL in the requirements.
+    - Use OS lib to ensure the file path to data is correct cross platform.
