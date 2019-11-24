@@ -14,6 +14,8 @@ or
 
 ## Usage
 
+if using Pipenv first activate the shell with ```pipenv shell```
+
 Usage: phone_mast_processor [OPTIONS] FILE
 
   This application processes phone mast data and outputs it to the console.

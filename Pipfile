@@ -10,7 +10,7 @@ mock = "*"
 [packages]
 click = "==7.0"
 setuptools = "*"
-numpy==1.17.4
+numpy = "==1.17.4"
 
 [requires]
 python_version = "3.8"
