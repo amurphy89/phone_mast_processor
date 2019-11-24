@@ -19,7 +19,7 @@ class Mast:
         self.current_rent = float(current_rent)
 
     def __str__(self):
-        return f'''
+        return f"""
             Property Name: {self.property_name},
             Address Line 1: {self.address1},
             Address Line 2: {self.address2},
@@ -31,11 +31,11 @@ class Mast:
             Lease End Date: {Mast.date_to_string(self.lease_end_date)},
             Lease Years: {self.lease_years},
             Current Rent: {self.current_rent},
-        '''
+        """
     @staticmethod
     def string_to_date(date):
-        return datetime.strptime(date, '%d %b %Y')
+        return datetime.strptime(date, "%d %b %Y")
     
     @staticmethod
     def date_to_string(date):
-        return datetime.strftime(date, '%d/%m/%Y')
+        return datetime.strftime(date, "%d/%m/%Y")

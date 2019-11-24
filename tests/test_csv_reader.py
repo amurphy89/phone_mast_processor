@@ -26,4 +26,3 @@ class TestBink:
             with patch('bink.csv_reader.open', mock_open(read_data='\tgjhkh'), create=True) as m:
                 result = csv_reader.read_csv('test.csv')
                 assert result == 1
-
