@@ -1,7 +1,5 @@
 import itertools
 
-from datetime import datetime
-
 from .mast import Mast
 from.levensthein import levenshtein_ratio_and_distance
 
