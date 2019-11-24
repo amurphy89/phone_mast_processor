@@ -1,5 +1,7 @@
 import itertools
 
+from datetime import datetime
+
 from .mast import Mast
 from.levensthein import levenshtein_ratio_and_distance
 
@@ -38,4 +40,11 @@ def group_masts_by_tenant(masts):
         if mast.tenant_name not in result:
             result[mast.tenant_name] = 1
 
+    return result
+
+def filter_by_lease_start_date(masts, earliest_date, last_date):
+    result = []
+    for mast in masts:
+        if earliest_date <= mast.lease_start_date <= last_date:
+            result.append(mast)
     return result

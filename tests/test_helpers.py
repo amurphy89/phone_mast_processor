@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from bink.mast import Mast
 
 from bink import helpers
@@ -16,11 +18,11 @@ class TestHelpers:
         ]
 
         self.masts = [
-            Mast('Beecroft Hill', 'Broad Lane','','','LS13','Beecroft Hill - Telecom App','EE', '01 Mar 1994', '28 Feb 2058', '64', '4500.00'),
+            Mast('Beecroft Hill', 'Broad Lane','','','LS13','Beecroft Hill - Telecom App','EE', '01 Mar 2003', '28 Feb 2004', '64', '4500.00'),
             Mast('Potternewton Crescent', 'Potternewton Est Playing Field','','','LS13','Beecroft Hill - Telecom App','Arqiva Services Ltd', '01 Mar 1994', '28 Feb 2058', '10', '50000.00'),
-            Mast('Potternewton Crescent', 'Potternewton Est Playing Field','','','LS13','Beecroft Hill - Telecom App','Arqiva Services ltd', '01 Mar 1994', '28 Feb 2058', '20', '60000.00'),
-            Mast('Potternewton Crescent', 'Potternewton Est Playing Field','','','LS13','Beecroft Hill - Telecom App','Arqiva Services.', '01 Mar 1994', '28 Feb 2058', '30', '23950.00'),
-            Mast('Potternewton Crescent', 'Potternewton Est Playing Field','','','LS13','Beecroft Hill - Telecom App','Arqiva Services ltd.', '01 Mar 1994', '28 Feb 2058', '40', '23950.00'),
+            Mast('Potternewton Crescent', 'Potternewton Est Playing Field','','','LS13','Beecroft Hill - Telecom App','Arqiva Services ltd', '01 Mar 2000', '28 Feb 2058', '20', '60000.00'),
+            Mast('Potternewton Crescent', 'Potternewton Est Playing Field','','','LS13','Beecroft Hill - Telecom App','Arqiva Services.', '01 Mar 2001', '28 Feb 2058', '30', '23950.00'),
+            Mast('Potternewton Crescent', 'Potternewton Est Playing Field','','','LS13','Beecroft Hill - Telecom App','Arqiva Services ltd.', '01 Mar 2008', '28 Feb 2058', '40', '23950.00'),
             Mast('Potternewton Crescent', 'Potternewton Est Playing Field','','','LS13','Beecroft Hill - Telecom App','Vodafone', '01 Mar 1994', '28 Feb 2058', '64', '23950.00'),
             Mast('Potternewton Crescent', 'Potternewton Est Playing Field','','','LS13','Beecroft Hill - Telecom App','Vodafone Phones.', '01 Mar 1994', '28 Feb 2058', '64', '23950.00'),
         ]
@@ -57,3 +59,10 @@ class TestHelpers:
         assert 'Arqiva Services.' not in result
         assert result['Vodafone'] == 2
         assert result['EE'] == 1
+
+    def test_filter_by_lease_start_date(self):
+        earliest_date = datetime(1999, 6, 1)
+        last_date = datetime(2007, 8, 31)
+        result = helpers.filter_by_lease_start_date(self.masts, earliest_date, last_date)
+        
+        assert len(result) == 3
