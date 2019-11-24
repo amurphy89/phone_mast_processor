@@ -1,8 +1,9 @@
-#Phone Mast Data Processor
+# Phone Mast Data Processor
 
 Load phone mast data, process and output to the console.
 
 Installation
+
 Install using pip:
 
 ```$ pip install phone_mast_processor```
@@ -11,7 +12,9 @@ or
 
 ```$ pipenv run pip install .```
 
-##Usage
+## Usage
+
+if using Pipenv first activate the shell with ```pipenv shell```
 
 Usage: phone_mast_processor [OPTIONS] FILE
 
@@ -28,13 +31,13 @@ Usage: phone_mast_processor [OPTIONS] FILE
 
   eg ```phone_mast_processor -s "total rent" data.csv```
 
-##Development
+## Development
 
 Install pipenv and run from the base directory. This application has only been tested with Python 3.8 but will require at lease version 3.6 due to this use of f strings:
 
 ```pipenv install --dev```
 
-Test
+## Test
 
 ```pipenv run pytest```
 
