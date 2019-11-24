@@ -1,6 +1,6 @@
 import pytest
 
-from bink.mast import Mast
+from phone_mast_processor.mast import Mast
 
 @pytest.fixture
 def data():

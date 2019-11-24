@@ -4,7 +4,7 @@ import pytest
 
 from mock import patch
 
-from bink.phone_mast_info import PhoneMastInfo
+from phone_mast_processor.phone_mast_info import PhoneMastInfo
 
 from .test_fixtures import data
 
@@ -17,7 +17,7 @@ class TestPhoneMastInfo:
     def teardown(self):
         sys.stdout = sys.__stdout__
 
-    @patch("bink.phone_mast_info.csv_reader.read_csv")
+    @patch("phone_mast_processor.phone_mast_info.csv_reader.read_csv")
     def test_no_defined_section_runs_all_sections(self, mock_csv_reader, data):
         mock_csv_reader.return_value = data
 
@@ -39,7 +39,7 @@ class TestPhoneMastInfo:
         ("lease start date", "All rentals with a Lease Start Date between 1 June 1999 and 31 Aug 2007")
      ]
     )
-    @patch("bink.phone_mast_info.csv_reader.read_csv")
+    @patch("phone_mast_processor.phone_mast_info.csv_reader.read_csv")
     def test_section_years_runs_masts_by_lease(self, mock_csv_reader, data, section, expected, ):
         mock_csv_reader.return_value = data
 
