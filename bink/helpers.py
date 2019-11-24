@@ -27,10 +27,12 @@ def group_masts_by_tenant(masts):
         seen = False
         for tenant, count in result.items():
             ratio = round(levenshtein_ratio_and_distance(tenant, mast.tenant_name, ratio_calc=True), 2)
-            if 0.62 <= ratio <= 1:
+            is_similar = 0.62 <= ratio <= 1
+            if is_similar:
                 result[tenant] += 1
                 seen = True
                 break
+
         if seen:
             continue
         if mast.tenant_name not in result:

@@ -22,6 +22,7 @@ class TestHelpers:
             Mast('Potternewton Crescent', 'Potternewton Est Playing Field','','','LS13','Beecroft Hill - Telecom App','Arqiva Services.', '01 Mar 1994', '28 Feb 2058', '30', '23950.00'),
             Mast('Potternewton Crescent', 'Potternewton Est Playing Field','','','LS13','Beecroft Hill - Telecom App','Arqiva Services ltd.', '01 Mar 1994', '28 Feb 2058', '40', '23950.00'),
             Mast('Potternewton Crescent', 'Potternewton Est Playing Field','','','LS13','Beecroft Hill - Telecom App','Vodafone', '01 Mar 1994', '28 Feb 2058', '64', '23950.00'),
+            Mast('Potternewton Crescent', 'Potternewton Est Playing Field','','','LS13','Beecroft Hill - Telecom App','Vodafone Phones.', '01 Mar 1994', '28 Feb 2058', '64', '23950.00'),
         ]
 
 
@@ -36,7 +37,7 @@ class TestHelpers:
 
         assert len(result) == 5
         assert result[0].current_rent == 4500.00
-        assert result[4].current_rent == 50000.00
+        assert result[4].current_rent == 23950.00
 
     def test_filter_by_lease_years_returns_filtered_list(self):
         result = helpers.filter_by_lease_years(self.masts, 64)
@@ -47,13 +48,12 @@ class TestHelpers:
     def test_calculate_total_rent_returns_total_of_all_rents(self):
         result = helpers.calculate_total_rent(self.masts)
 
-        assert result == 186350.00
+        assert result == 210300.00
 
     def test_group_masts_by_tenant(self):
         result = helpers.group_masts_by_tenant(self.masts)
 
         assert result['Arqiva Services Ltd'] == 4
-        assert 'Arqiva Services' not in result
-
-        
-
+        assert 'Arqiva Services.' not in result
+        assert result['Vodafone'] == 2
+        assert result['EE'] == 1
