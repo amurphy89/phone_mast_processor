@@ -40,5 +40,5 @@ Things to improve:
 
     - Comments!
     - Use the 'typing' library to support type hints e.g. def greeting(name: str) -> str:
-    - 
-
+    - Convince the Product Owner to allow me to use Pandas!
+    - If the input file cannot be found or is empty, uses requests to download the file from the URL in the requirements.
